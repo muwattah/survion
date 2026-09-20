@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Porodo OneGear — Power. Light. Fire. Your entire campsite in one gear. Concept demo experience." />
+  <title>Porodo OneGear — One Gear. Every Adventure.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+  <!-- LOADING -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-brand">PORODO</div>
+      <div class="loader-sub">ONEGEAR</div>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+      <p class="loader-text">Preparing your adventure...</p>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">PORODO <span>ONEGEAR</span></a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#experience">Experience</a>
+        <a href="#specs">Specs</a>
+        <a href="#cta" class="nav-cta">Get OneGear</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-bg">
+      <div class="layer stars" data-speed="0.02"></div>
+      <div class="layer mountains" data-speed="0.05"></div>
+      <div class="layer forest" data-speed="0.08"></div>
+      <div class="layer fog" data-speed="0.04"></div>
+      <div class="layer tent-glow" data-speed="0.12"></div>
+      <canvas id="embers" class="embers-canvas"></canvas>
+      <div class="campfire-glow"></div>
+    </div>
+    <div class="hero-content">
+      <div class="product-hero" data-speed="0.15">
+        <div class="product-sil">
+          <div class="product-body"></div>
+          <div class="product-hook"></div>
+          <div class="product-lens"></div>
+        </div>
+      </div>
+      <h1 class="hero-title">
+        <span class="line">ONE GEAR.</span>
+        <span class="line">EVERY ADVENTURE.</span>
+      </h1>
+      <p class="hero-sub">Power. Light. Fire.<br />Everything you need when the road disappears.</p>
+      <div class="hero-ctas">
+        <a href="#experience" class="btn btn-primary">Explore OneGear</a>
+        <a href="#features" class="btn btn-ghost">Discover Features</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll to explore</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- FLASHLIGHT -->
+  <section id="flashlight" class="section flashlight-section">
+    <div class="flashlight-stage">
+      <div class="dark-overlay"></div>
+      <div class="beam" id="beam">
+        <div class="beam-cone"></div>
+        <canvas id="dust" class="dust-canvas"></canvas>
+      </div>
+      <div class="flashlight-product">
+        <div class="product-mini">
+          <div class="pm-body"></div>
+          <div class="pm-lens active"></div>
+        </div>
+      </div>
+      <div class="flashlight-copy">
+        <h2 class="reveal-title">LIGHT THE UNKNOWN.</h2>
+        <p class="reveal-text">A high-output LED with adjustable brightness. Up to 23 hours on weak light, 11 hours on strong — so the trail never ends in darkness.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- POWER BANK -->
+  <section id="power" class="section power-section">
+    <div class="power-inner">
+      <h2 class="section-title">POWER WHEN YOU NEED IT.</h2>
+      <div class="power-display">
+        <div class="big-number" id="mahCounter">0</div>
+        <div class="mah-label">mAh</div>
+      </div>
+      <div class="battery-visual">
+        <div class="battery-shell">
+          <div class="battery-fill" id="batteryFill"></div>
+          <div class="battery-levels">
+            <span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span>
+          </div>
+        </div>
+      </div>
+      <div class="energy-lines" id="energyLines">
+        <svg viewBox="0 0 400 120" preserveAspectRatio="none">
+          <path class="energy-path" d="M20,60 Q100,20 200,60 T380,60" />
+          <path class="energy-path" d="M20,70 Q120,110 220,70 T380,70" />
+        </svg>
+        <div class="device-icon">
+          <div class="phone"></div>
+        </div>
+      </div>
+      <p class="power-copy">Type-C 12W input/output. Fully recharged in about 110 minutes. Keep your devices alive under the stars.</p>
+    </div>
+  </section>
+
+  <!-- LIGHTER / FIRE -->
+  <section id="fire" class="section fire-section">
+    <div class="fire-stage">
+      <canvas id="fireCanvas" class="fire-canvas"></canvas>
+      <div class="coals" id="coals"></div>
+      <div class="fire-copy">
+        <h2 class="reveal-title">START THE NIGHT.</h2>
+        <p class="reveal-text">Built-in arc lighter. No gas. No mess. Just a reliable spark when the temperature drops and the stories begin.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES / EXPLODED -->
+  <section id="features" class="section features-section">
+    <div class="features-sticky">
+      <div class="product-center" id="productCenter">
+        <div class="product-3d">
+          <div class="p3d-body"></div>
+          <div class="p3d-hook"></div>
+          <div class="p3d-lens"></div>
+          <div class="p3d-lighter"></div>
+        </div>
+      </div>
+      <div class="feature-labels">
+        <div class="flabel" data-feature="power">
+          <span class="fl-line"></span>
+          <span class="fl-text">5000mAh POWER BANK</span>
+        </div>
+        <div class="flabel" data-feature="light">
+          <span class="fl-line"></span>
+          <span class="fl-text">HIGH-OUTPUT FLASHLIGHT</span>
+        </div>
+        <div class="flabel" data-feature="lighter">
+          <span class="fl-line"></span>
+          <span class="fl-text">BUILT-IN ARC LIGHTER</span>
+        </div>
+        <div class="flabel" data-feature="portable">
+          <span class="fl-line"></span>
+          <span class="fl-text">PORTABLE DESIGN</span>
+        </div>
+        <div class="flabel" data-feature="outdoor">
+          <span class="fl-line"></span>
+          <span class="fl-text">OUTDOOR READY</span>
+        </div>
+        <div class="flabel" data-feature="hook">
+          <span class="fl-line"></span>
+          <span class="fl-text">CARABINER HOOK</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILT FOR THE WILD -->
+  <section id="wild" class="section wild-section">
+    <div class="wild-bg">
+      <div class="wild-mountains"></div>
+      <div class="wild-forest"></div>
+      <div class="wild-tent"></div>
+    </div>
+    <div class="wild-text">
+      <h2>
+        <span class="wt-line">BUILT</span>
+        <span class="wt-line">FOR THE</span>
+        <span class="wt-line accent">WILD.</span>
+      </h2>
+      <p>From the first spark to the last percent of battery.<br />OneGear keeps the adventure moving.</p>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE CAMP -->
+  <section id="experience" class="section camp-section">
+    <h2 class="section-title center">INTERACTIVE CAMP</h2>
+    <p class="section-lead">Hover or tap the elements to explore.</p>
+    <div class="camp-scene" id="campScene">
+      <div class="camp-bg"></div>
+      <div class="hotspot hs-tent" data-info="tent">
+        <span class="hs-dot"></span>
+        <div class="hs-card">
+          <strong>Portable & Ready</strong>
+          <p>Clip it to your pack with the built-in carabiner. Always within reach.</p>
+        </div>
+      </div>
+      <div class="hotspot hs-phone" data-info="phone">
+        <span class="hs-dot"></span>
+        <div class="hs-card">
+          <strong>Power Bank</strong>
+          <p>5000mAh Type-C. Charge your phone while the night is still young.</p>
+        </div>
+      </div>
+      <div class="hotspot hs-trail" data-info="trail">
+        <span class="hs-dot"></span>
+        <div class="hs-card">
+          <strong>Flashlight</strong>
+          <p>Adjustable beam. Up to 23 hours of light when the path disappears.</p>
+        </div>
+      </div>
+      <div class="hotspot hs-fire" data-info="fire">
+        <span class="hs-dot"></span>
+        <div class="hs-card">
+          <strong>Arc Lighter</strong>
+          <p>Ignite the campfire without gas or matches. Built for the wild.</p>
+        </div>
+      </div>
+      <div class="hotspot hs-onegear" data-info="onegear">
+        <span class="hs-dot"></span>
+        <div class="hs-card">
+          <strong>OneGear</strong>
+          <p>Power. Light. Fire. Everything you need in one rugged unit.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="specs" class="section stats-section">
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-num" data-target="5000">0</div>
+        <div class="stat-unit">mAh</div>
+        <div class="stat-label">POWER</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="3">0</div>
+        <div class="stat-unit">IN 1</div>
+        <div class="stat-label">UTILITY</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="23">0</div>
+        <div class="stat-unit">H</div>
+        <div class="stat-label">MAX LIGHT</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" data-target="1">0</div>
+        <div class="stat-unit"></div>
+        <div class="stat-label">ADVENTURE COMPANION</div>
+      </div>
+    </div>
+    <div class="specs-list">
+      <div class="spec-row"><span>Battery</span><span>5000mAh</span></div>
+      <div class="spec-row"><span>Type-C I/O</span><span>5V/2.4A (12W Max)</span></div>
+      <div class="spec-row"><span>Charge Time</span><span>~110 min</span></div>
+      <div class="spec-row"><span>Flashlight</span><span>23H weak / 11H strong</span></div>
+      <div class="spec-row"><span>Lighter</span><span>Arc (electronic)</span></div>
+      <div class="spec-row"><span>Extras</span><span>Carabiner hook</span></div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta" class="section cta-section">
+    <div class="cta-bg">
+      <div class="cta-stars"></div>
+      <div class="cta-camp"></div>
+    </div>
+    <div class="cta-content">
+      <h2 class="cta-title">
+        YOUR ENTIRE CAMPSITE.<br />
+        <span>IN ONE GEAR.</span>
+      </h2>
+      <p class="cta-sub">Power the moment. Light the way. Start the fire.</p>
+      <div class="cta-buttons">
+        <a href="https://www.porodo.net/shop/pdndc016kh-porodo-onegear-with-5000mah-power-bank-with-flashlight-lighter-khaki-5731" class="btn btn-primary" target="_blank" rel="noopener">Get OneGear</a>
+        <a href="#specs" class="btn btn-ghost">View Specifications</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="fb-logo">PORODO</div>
+        <div class="fb-sub">ONEGEAR</div>
+      </div>
+      <div class="footer-links">
+        <a href="#features">Product</a>
+        <a href="#features">Features</a>
+        <a href="#specs">Specifications</a>
+        <a href="#experience">Explore</a>
+      </div>
+      <p class="footer-disclaimer">Concept website / demonstration experience. Not an official Porodo storefront.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
