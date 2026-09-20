@@ -1,6 +1,11 @@
-/* SURVION — Cinematic Demo Scripts */
+/* ============================================
+   SURVION — Cinematic Demo Scripts
+   GSAP + ScrollTrigger + Canvas effects
+   ============================================ */
+
 (function () {
   "use strict";
+
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isMobile = () => window.innerWidth < 768 || "ontouchstart" in window;
 
@@ -25,7 +30,9 @@
     const nav = document.getElementById("nav");
     const toggle = document.getElementById("navToggle");
     const links = document.querySelector(".nav-links");
-    window.addEventListener("scroll", () => nav.classList.toggle("scrolled", window.scrollY > 40), { passive: true });
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("scrolled", window.scrollY > 40);
+    }, { passive: true });
     if (toggle && links) {
       toggle.addEventListener("click", () => links.classList.toggle("open"));
       links.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => links.classList.remove("open")));
@@ -52,7 +59,12 @@
       }, { passive: true });
     } else {
       let t = 0;
-      (function drift() { t += 0.004; mouseX = Math.sin(t) * 0.35; mouseY = Math.cos(t * 0.7) * 0.2; requestAnimationFrame(drift); })();
+      (function drift() {
+        t += 0.004;
+        mouseX = Math.sin(t) * 0.35;
+        mouseY = Math.cos(t * 0.7) * 0.2;
+        requestAnimationFrame(drift);
+      })();
     }
     (function animate() {
       currentX += (mouseX - currentX) * 0.06;
@@ -128,7 +140,9 @@
     function resize() { w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight; }
     function spawn() {
       particles = [];
-      for (let i = 0; i < (isMobile() ? 20 : 45); i++) particles.push({ x: w * 0.3 + Math.random() * w * 0.4, y: h * 0.25 + Math.random() * h * 0.55, r: 0.6 + Math.random() * 1.4, a: Math.random() * 0.35, vy: -0.15 - Math.random() * 0.25 });
+      for (let i = 0; i < (isMobile() ? 20 : 45); i++) {
+        particles.push({ x: w * 0.3 + Math.random() * w * 0.4, y: h * 0.25 + Math.random() * h * 0.55, r: 0.6 + Math.random() * 1.4, a: Math.random() * 0.35, vy: -0.15 - Math.random() * 0.25 });
+      }
     }
     function tick() {
       ctx.clearRect(0, 0, w, h);
@@ -246,27 +260,56 @@
   }
 
   function initCountdown() {
-    const launch = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000);
+    const STORAGE_KEY = "survion_launch_ts";
+    let launchTs = Number(sessionStorage.getItem(STORAGE_KEY));
+    if (!launchTs || Number.isNaN(launchTs)) {
+      launchTs = Date.now() + 30 * 24 * 60 * 60 * 1000;
+      sessionStorage.setItem(STORAGE_KEY, String(launchTs));
+    }
+
     const elDays = document.getElementById("cdDays");
     const elHours = document.getElementById("cdHours");
     const elMins = document.getElementById("cdMins");
     const elSecs = document.getElementById("cdSecs");
     const heroDays = document.getElementById("heroDays");
     const pad = (n) => String(n).padStart(2, "0");
-    function tick() {
-      let diff = Math.max(0, launch.getTime() - Date.now());
-      const days = Math.floor(diff / 86400000); diff -= days * 86400000;
-      const hours = Math.floor(diff / 3600000); diff -= hours * 3600000;
-      const mins = Math.floor(diff / 60000); diff -= mins * 60000;
-      const secs = Math.floor(diff / 1000);
-      if (elDays) elDays.textContent = String(days);
-      if (elHours) elHours.textContent = pad(hours);
-      if (elMins) elMins.textContent = pad(mins);
-      if (elSecs) elSecs.textContent = pad(secs);
-      if (heroDays) heroDays.textContent = String(days);
+    let prev = { d: null, h: null, m: null, s: null };
+
+    function flip(el, value) {
+      if (!el) return;
+      if (el.textContent === value) return;
+      el.classList.remove("tick");
+      void el.offsetWidth;
+      el.textContent = value;
+      el.classList.add("tick");
     }
+
+    function tick() {
+      const totalSec = Math.max(0, Math.ceil((launchTs - Date.now()) / 1000));
+      const days = Math.floor(totalSec / 86400);
+      const hours = Math.floor((totalSec % 86400) / 3600);
+      const mins = Math.floor((totalSec % 3600) / 60);
+      const secs = totalSec % 60;
+
+      const dStr = pad(days);
+      const hStr = pad(hours);
+      const mStr = pad(mins);
+      const sStr = pad(secs);
+
+      if (prev.d !== dStr) flip(elDays, dStr);
+      if (prev.h !== hStr) flip(elHours, hStr);
+      if (prev.m !== mStr) flip(elMins, mStr);
+      if (prev.s !== sStr) flip(elSecs, sStr);
+      if (heroDays && prev.d !== dStr) heroDays.textContent = String(days);
+      prev = { d: dStr, h: hStr, m: mStr, s: sStr };
+    }
+
     tick();
-    setInterval(tick, 1000);
+    const msToNextSecond = 1000 - (Date.now() % 1000);
+    setTimeout(() => {
+      tick();
+      setInterval(tick, 1000);
+    }, msToNextSecond);
   }
 
   function initPreorderForm() {
@@ -289,7 +332,10 @@
         const id = a.getAttribute("href");
         if (id === "#") return;
         const target = document.querySelector(id);
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" }); }
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: prefersReduced ? "auto" : "smooth", block: "start" });
+        }
       });
     });
   }
