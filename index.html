@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SURVION — Power. Light. Fire. Your entire campsite in one gear. Pre-order now. Launch in 30 days." />
-  <title>SURVION — One Gear. Every Adventure.</title>
+  <meta name="description" content="SURVION — a cinematic concept experience featuring SURVION ONEGEAR. Power. Light. Fire." />
+  <title>SURVION ONEGEAR</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -17,168 +17,208 @@
     <div class="loader-inner">
       <div class="loader-brand">SURVION</div>
       <div class="loader-bar"><div class="loader-progress"></div></div>
-      <p class="loader-text">Preparing your adventure...</p>
+      <p class="loader-text">Entering the wild...</p>
     </div>
   </div>
+
   <header class="nav" id="nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">SURVION</a>
       <nav class="nav-links">
-        <a href="#features">Features</a>
+        <a href="#reveal">OneGear</a>
+        <a href="#product">Product</a>
         <a href="#experience">Experience</a>
         <a href="#specs">Specs</a>
-        <a href="#preorder" class="nav-cta">Pre-order</a>
+        <a href="#final" class="nav-cta">Discover</a>
       </nav>
       <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span></button>
     </div>
   </header>
+
   <section id="hero" class="hero">
     <div class="hero-bg">
       <div class="layer stars" data-speed="0.02"></div>
       <div class="layer mountains" data-speed="0.05"></div>
       <div class="layer forest" data-speed="0.08"></div>
       <div class="layer fog" data-speed="0.04"></div>
-      <div class="layer tent-glow" data-speed="0.12"></div>
       <canvas id="embers" class="embers-canvas"></canvas>
       <div class="campfire-glow"></div>
     </div>
     <div class="hero-content">
-      <div class="launch-badge">LAUNCH IN <span id="heroDays">30</span> DAYS</div>
-      <div class="product-hero" data-speed="0.15">
-        <div class="product-sil">
-          <div class="product-body"></div>
-          <div class="product-hook"></div>
-          <div class="product-lens"></div>
-        </div>
+      <p class="hero-kicker">A cinematic concept experience</p>
+      <h1 class="hero-title">
+        <span class="line">ONE GEAR.</span>
+        <span class="line accent">EVERY ADVENTURE.</span>
+      </h1>
+      <p class="hero-sub">Power. Light. Fire.<br />SURVION ONEGEAR — power, light, and fire in one device.</p>
+      <div class="hero-product-stage">
+        <div class="hero-surface"></div>
+        <img src="https://images.snoonu.com/product/2025-10/4fa734fd-2d3c-44c1-baa0-8b23aadb87a3_4545.webp" alt="SURVION ONEGEAR 5000mAh — Khaki" class="hero-product" data-speed="0.12" width="1024" height="1024" loading="eager" />
+        <div class="hero-product-shadow"></div>
+        <div class="hero-rim-warm"></div>
+        <div class="hero-rim-cool"></div>
       </div>
-      <h1 class="hero-title"><span class="line">ONE GEAR.</span><span class="line">EVERY ADVENTURE.</span></h1>
-      <p class="hero-sub">Power. Light. Fire.<br />Everything you need when the road disappears.</p>
       <div class="hero-ctas">
-        <a href="#preorder" class="btn btn-primary">Pre-order Now</a>
-        <a href="#features" class="btn btn-ghost">Discover Features</a>
+        <a href="#reveal" class="btn btn-primary">Meet OneGear</a>
+        <a href="#product" class="btn btn-ghost">View Product</a>
       </div>
     </div>
     <div class="scroll-hint"><span>Scroll to explore</span><div class="scroll-line"></div></div>
   </section>
+
+  <section id="reveal" class="section reveal-section">
+    <div class="reveal-stage">
+      <div class="reveal-dark"></div>
+      <div class="reveal-beam" id="revealBeam"></div>
+      <div class="reveal-product-wrap">
+        <img src="https://images.snoonu.com/product/2025-10/72f39a10-2ef4-4e6e-8aaf-a5a685427acc_45453.webp" alt="SURVION ONEGEAR product reveal" class="reveal-product" id="revealProduct" width="660" height="660" />
+      </div>
+      <div class="reveal-copy">
+        <h2 class="reveal-meet">MEET<br /><span>ONEGEAR.</span></h2>
+        <p class="reveal-brand-note">SURVION ONEGEAR · Khaki</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="product" class="section product-section">
+    <div class="product-inner">
+      <h2 class="section-title center">ONE DEVICE.<br /><span class="accent">THREE ESSENTIALS.</span></h2>
+      <div class="product-stage">
+        <img src="https://images.snoonu.com/product/2025-10/4fa734fd-2d3c-44c1-baa0-8b23aadb87a3_4545.webp" alt="SURVION ONEGEAR — full product view" class="product-large" id="productLarge" width="1024" height="1024" />
+        <div class="product-features">
+          <div class="pf pf-power"><span class="pf-line"></span><div class="pf-text"><strong>POWER</strong><span>5000mAh Power Bank</span></div></div>
+          <div class="pf pf-light"><span class="pf-line"></span><div class="pf-text"><strong>LIGHT</strong><span>Integrated Flashlight</span></div></div>
+          <div class="pf pf-fire"><span class="pf-line"></span><div class="pf-text"><strong>FIRE</strong><span>Integrated Arc Lighter</span></div></div>
+        </div>
+      </div>
+      <p class="product-footnote">SURVION ONEGEAR · Type-C 12W · Carabiner hook · Adjustable brightness</p>
+    </div>
+  </section>
+
   <section id="flashlight" class="section flashlight-section">
     <div class="flashlight-stage">
       <div class="dark-overlay"></div>
       <div class="beam" id="beam"><div class="beam-cone"></div><canvas id="dust" class="dust-canvas"></canvas></div>
-      <div class="flashlight-product"><div class="product-mini"><div class="pm-body"></div><div class="pm-lens active"></div></div></div>
+      <div class="fl-product-wrap">
+        <img src="https://images.snoonu.com/product/2025-10/4bbc414f-51b9-47b4-977f-663de7bfa68f_45451.webp" alt="SURVION ONEGEAR flashlight" class="fl-product" width="1024" height="1024" />
+      </div>
       <div class="flashlight-copy">
         <h2 class="reveal-title">LIGHT THE UNKNOWN.</h2>
-        <p class="reveal-text">A high-output LED with adjustable brightness. Up to 23 hours on weak light, 11 hours on strong — so the trail never ends in darkness.</p>
+        <p class="reveal-text">High-output LED with adjustable brightness. Up to 23 hours on weak light, 11 hours on strong.</p>
       </div>
     </div>
   </section>
+
   <section id="power" class="section power-section">
     <div class="power-inner">
       <h2 class="section-title">POWER WHEN YOU NEED IT.</h2>
-      <div class="power-display"><div class="big-number" id="mahCounter">0</div><div class="mah-label">mAh</div></div>
-      <div class="battery-visual"><div class="battery-shell"><div class="battery-fill" id="batteryFill"></div><div class="battery-levels"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div></div></div>
-      <div class="energy-lines" id="energyLines"><svg viewBox="0 0 400 120" preserveAspectRatio="none"><path class="energy-path" d="M20,60 Q100,20 200,60 T380,60" /><path class="energy-path" d="M20,70 Q120,110 220,70 T380,70" /></svg><div class="device-icon"><div class="phone"></div></div></div>
-      <p class="power-copy">Type-C 12W input/output. Fully recharged in about 110 minutes. Keep your devices alive under the stars.</p>
+      <div class="power-visual">
+        <div class="power-device">
+          <img src="https://images.snoonu.com/product/2025-10/4fa734fd-2d3c-44c1-baa0-8b23aadb87a3_4545.webp" alt="SURVION ONEGEAR power bank" class="power-img" width="400" height="400" />
+        </div>
+        <div class="power-lines" aria-hidden="true">
+          <svg viewBox="0 0 200 80" preserveAspectRatio="none"><path class="energy-path" d="M10,40 Q60,10 100,40 T190,40" /></svg>
+        </div>
+        <div class="power-phone" aria-hidden="true"><div class="phone-body"></div></div>
+      </div>
+      <div class="power-stats">
+        <div class="ps"><span class="ps-num" id="mahCounter">0</span><span class="ps-unit">mAh</span></div>
+        <div class="ps"><span class="ps-label">Type-C</span><span class="ps-val">5V/2.4A · 12W Max</span></div>
+        <div class="ps"><span class="ps-label">Full charge</span><span class="ps-val">~110 min</span></div>
+      </div>
     </div>
   </section>
+
   <section id="fire" class="section fire-section">
     <div class="fire-stage">
       <canvas id="fireCanvas" class="fire-canvas"></canvas>
-      <div class="coals" id="coals"></div>
+      <div class="fire-product-wrap">
+        <img src="https://images.snoonu.com/product/2025-10/a4cdfe7c-267f-4a38-8d46-8ff8fcda01e4_45452.webp" alt="SURVION ONEGEAR arc lighter" class="fire-product" width="657" height="657" />
+      </div>
       <div class="fire-copy">
         <h2 class="reveal-title">START THE NIGHT.</h2>
-        <p class="reveal-text">Built-in arc lighter. No gas. No mess. Just a reliable spark when the temperature drops and the stories begin.</p>
+        <p class="reveal-text">Built-in arc lighter. No gas. No mess. A reliable spark when the temperature drops.</p>
       </div>
     </div>
   </section>
-  <section id="features" class="section features-section">
+
+  <section id="experience" class="section features-section">
     <div class="features-sticky">
-      <div class="product-center" id="productCenter"><div class="product-3d"><div class="p3d-body"></div><div class="p3d-hook"></div><div class="p3d-lens"></div><div class="p3d-lighter"></div></div></div>
+      <div class="feat-product-wrap" id="featProduct">
+        <img src="https://images.snoonu.com/product/2025-10/4fa734fd-2d3c-44c1-baa0-8b23aadb87a3_4545.webp" alt="SURVION ONEGEAR features" class="feat-product" width="1024" height="1024" />
+      </div>
       <div class="feature-labels">
-        <div class="flabel" data-feature="power"><span class="fl-line"></span><span class="fl-text">5000mAh POWER BANK</span></div>
-        <div class="flabel" data-feature="light"><span class="fl-line"></span><span class="fl-text">HIGH-OUTPUT FLASHLIGHT</span></div>
-        <div class="flabel" data-feature="lighter"><span class="fl-line"></span><span class="fl-text">BUILT-IN ARC LIGHTER</span></div>
-        <div class="flabel" data-feature="portable"><span class="fl-line"></span><span class="fl-text">PORTABLE DESIGN</span></div>
-        <div class="flabel" data-feature="outdoor"><span class="fl-line"></span><span class="fl-text">OUTDOOR READY</span></div>
-        <div class="flabel" data-feature="hook"><span class="fl-line"></span><span class="fl-text">CARABINER HOOK</span></div>
+        <div class="flabel" data-f="1"><span class="fl-line"></span><span class="fl-text">5000mAh POWER BANK</span></div>
+        <div class="flabel" data-f="2"><span class="fl-line"></span><span class="fl-text">HIGH-OUTPUT FLASHLIGHT</span></div>
+        <div class="flabel" data-f="3"><span class="fl-line"></span><span class="fl-text">BUILT-IN ARC LIGHTER</span></div>
+        <div class="flabel" data-f="4"><span class="fl-line"></span><span class="fl-text">CARABINER HOOK</span></div>
+        <div class="flabel" data-f="5"><span class="fl-line"></span><span class="fl-text">COMPACT & PORTABLE</span></div>
       </div>
     </div>
   </section>
+
   <section id="wild" class="section wild-section">
-    <div class="wild-bg"><div class="wild-mountains"></div><div class="wild-forest"></div><div class="wild-tent"></div></div>
+    <div class="wild-bg"><div class="wild-mountains"></div><div class="wild-forest"></div></div>
     <div class="wild-text">
       <h2><span class="wt-line">BUILT</span><span class="wt-line">FOR THE</span><span class="wt-line accent">WILD.</span></h2>
-      <p>From the first spark to the last percent of battery.<br />SURVION keeps the adventure moving.</p>
+      <p>From the first spark to the last percent of battery.<br />OneGear keeps the adventure moving.</p>
     </div>
   </section>
-  <section id="experience" class="section camp-section">
-    <h2 class="section-title center">INTERACTIVE CAMP</h2>
-    <p class="section-lead">Hover or tap the elements to explore.</p>
-    <div class="camp-scene" id="campScene">
-      <div class="camp-bg"></div>
-      <div class="hotspot hs-tent" data-info="tent"><span class="hs-dot"></span><div class="hs-card"><strong>Portable & Ready</strong><p>Clip it to your pack with the built-in carabiner. Always within reach.</p></div></div>
-      <div class="hotspot hs-phone" data-info="phone"><span class="hs-dot"></span><div class="hs-card"><strong>Power Bank</strong><p>5000mAh Type-C. Charge your phone while the night is still young.</p></div></div>
-      <div class="hotspot hs-trail" data-info="trail"><span class="hs-dot"></span><div class="hs-card"><strong>Flashlight</strong><p>Adjustable beam. Up to 23 hours of light when the path disappears.</p></div></div>
-      <div class="hotspot hs-fire" data-info="fire"><span class="hs-dot"></span><div class="hs-card"><strong>Arc Lighter</strong><p>Ignite the campfire without gas or matches. Built for the wild.</p></div></div>
-      <div class="hotspot hs-onegear" data-info="survion"><span class="hs-dot"></span><div class="hs-card"><strong>SURVION</strong><p>Power. Light. Fire. Everything you need in one rugged unit.</p></div></div>
-    </div>
-  </section>
+
   <section id="specs" class="section stats-section">
     <div class="stats-grid">
-      <div class="stat"><div class="stat-num" data-target="5000">0</div><div class="stat-unit">mAh</div><div class="stat-label">POWER</div></div>
+      <div class="stat"><div class="stat-num" data-target="5000">0</div><div class="stat-unit">mAh</div><div class="stat-label">CAPACITY</div></div>
       <div class="stat"><div class="stat-num" data-target="3">0</div><div class="stat-unit">IN 1</div><div class="stat-label">UTILITY</div></div>
       <div class="stat"><div class="stat-num" data-target="23">0</div><div class="stat-unit">H</div><div class="stat-label">MAX LIGHT</div></div>
-      <div class="stat"><div class="stat-num" data-target="1">0</div><div class="stat-unit"></div><div class="stat-label">ADVENTURE COMPANION</div></div>
+      <div class="stat"><div class="stat-num" data-target="12">0</div><div class="stat-unit">W</div><div class="stat-label">TYPE-C MAX</div></div>
     </div>
     <div class="specs-list">
+      <div class="spec-row"><span>Product</span><span>SURVION ONEGEAR</span></div>
       <div class="spec-row"><span>Battery</span><span>5000mAh</span></div>
       <div class="spec-row"><span>Type-C I/O</span><span>5V/2.4A (12W Max)</span></div>
-      <div class="spec-row"><span>Charge Time</span><span>~110 min</span></div>
+      <div class="spec-row"><span>Charge time</span><span>~110 min</span></div>
       <div class="spec-row"><span>Flashlight</span><span>23H weak / 11H strong</span></div>
       <div class="spec-row"><span>Lighter</span><span>Arc (electronic)</span></div>
-      <div class="spec-row"><span>Extras</span><span>Carabiner hook</span></div>
+      <div class="spec-row"><span>Extras</span><span>Carabiner hook · Adjustable brightness</span></div>
+      <div class="spec-row"><span>Color</span><span>Khaki</span></div>
     </div>
   </section>
-  <section id="preorder" class="section preorder-section">
-    <div class="preorder-bg"><div class="preorder-stars"></div></div>
-    <div class="preorder-content">
-      <p class="preorder-eyebrow">Limited first batch</p>
-      <h2 class="preorder-title">YOUR ENTIRE CAMPSITE.<br /><span>IN ONE GEAR.</span></h2>
-      <p class="preorder-sub">Power the moment. Light the way. Start the fire.</p>
-      <div class="countdown" id="countdown">
-        <div class="cd-unit"><span class="cd-num" id="cdDays">30</span><span class="cd-label">Days</span></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Hours</span></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit"><span class="cd-num" id="cdMins">00</span><span class="cd-label">Minutes</span></div>
-        <div class="cd-sep">:</div>
-        <div class="cd-unit"><span class="cd-num" id="cdSecs">00</span><span class="cd-label">Seconds</span></div>
+
+  <section id="final" class="section final-section">
+    <div class="final-bg">
+      <div class="final-stars"></div>
+      <div class="final-camp"></div>
+      <canvas id="finalEmbers" class="final-embers"></canvas>
+    </div>
+    <div class="final-content">
+      <div class="final-product-stage">
+        <div class="final-surface"></div>
+        <img src="https://images.snoonu.com/product/2025-10/4fa734fd-2d3c-44c1-baa0-8b23aadb87a3_4545.webp" alt="SURVION ONEGEAR in the campsite" class="final-product" width="1024" height="1024" />
+        <div class="final-shadow"></div>
       </div>
-      <p class="countdown-caption">Until official launch — pre-order now to secure yours</p>
-      <form class="preorder-form" id="preorderForm" novalidate>
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Full name" required autocomplete="name" />
-          <input type="email" name="email" placeholder="Email address" required autocomplete="email" />
-        </div>
-        <div class="form-row">
-          <select name="qty" required><option value="1">1 unit</option><option value="2">2 units</option><option value="3">3 units</option></select>
-          <button type="submit" class="btn btn-primary btn-preorder">Reserve Pre-order</button>
-        </div>
-        <p class="form-note">No payment today. You’ll be notified when shipping opens. First-batch priority for pre-orders.</p>
-      </form>
-      <div class="preorder-success" id="preorderSuccess" hidden>
-        <div class="success-icon">✓</div>
-        <h3>You’re on the list.</h3>
-        <p>We’ll email you as soon as SURVION ships. Adventure starts soon.</p>
+      <h2 class="final-title">YOUR ENTIRE CAMPSITE.<br /><span>IN ONE GEAR.</span></h2>
+      <p class="final-sub">Power. Light. Fire.<br />One device built for the adventure.</p>
+      <div class="final-ctas">
+        <a href="#product" class="btn btn-primary">Explore OneGear</a>
+        <a href="#specs" class="btn btn-ghost">View Specifications</a>
       </div>
+      <p class="final-credit">SURVION ONEGEAR — cinematic concept experience</p>
     </div>
   </section>
+
   <footer class="footer">
     <div class="footer-inner">
-      <div class="footer-brand"><div class="fb-logo">SURVION</div></div>
-      <div class="footer-links">
-        <a href="#features">Product</a><a href="#features">Features</a><a href="#specs">Specifications</a><a href="#preorder">Pre-order</a>
+      <div class="footer-brand">
+        <div class="fb-logo">SURVION</div>
+        <div class="fb-sub">Cinematic concept experience</div>
       </div>
-      <p class="footer-disclaimer">SURVION — the only gear you need outdoors. Pre-order concept experience.</p>
+      <div class="footer-links">
+        <a href="#reveal">OneGear</a>
+        <a href="#product">Product</a>
+        <a href="#specs">Specifications</a>
+        <a href="#final">Discover</a>
+      </div>
+      <p class="footer-disclaimer">SURVION is a creative concept / demonstration experience. SURVION ONEGEAR concept demonstration. Frontend-only experience.</p>
     </div>
   </footer>
   <script src="script.js"></script>
